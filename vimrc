@@ -153,7 +153,7 @@ map <F7> :call g:RubyDebugger.finish()<CR>
 map <F8> :call g:RubyDebugger.continue()<CR>
 
 " NERDTree Settings
-let NERDTreeChDirMode=2
+let NERDTreeChDirMode=1
 let g:NERDTreeMapActivateNode='<CR>'
 
 " Tlist settings

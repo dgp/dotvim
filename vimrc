@@ -8,14 +8,11 @@ set directory=~/.vim/tmp      " Directory for temporary files
 
 set cf                        " Enable error files & error jumping
 set history=256               " keep 50 lines of command line history
-set ruler                     " show the cursor position all the time
 set showcmd                   " display incomplete commands
 set incsearch                 " do incremental searching
 
 " Formatting
-"set ts=2                      " Tabs are 2 spaces
 set bs=2                      " allow backspacing over everything in insert mode
-set et
 set shiftwidth=2              " Tabs under smart indent
 set ignorecase                " Ignore case while searching
 set autoindent
@@ -41,7 +38,7 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " pathogen config
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 " Only do this part when compiled with support for auto commands.
@@ -50,7 +47,6 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'textwidth' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -112,7 +108,6 @@ syntax on
 filetype plugin indent on
 set foldmethod=syntax
 
-runtime! ftdetect/*.vim     " Filetype plugins
 runtime! macros/matchit.vim " Advanced % matching
 
 let g:xml_syntax_folding=1

@@ -13,8 +13,9 @@ set showcmd                   " display incomplete commands
 set incsearch                 " do incremental searching
 
 " Formatting
-set ts=2                      " Tabs are 2 spaces
+"set ts=2                      " Tabs are 2 spaces
 set bs=2                      " allow backspacing over everything in insert mode
+set et
 set shiftwidth=2              " Tabs under smart indent
 set ignorecase                " Ignore case while searching
 set autoindent

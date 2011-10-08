@@ -159,11 +159,14 @@ let Tlist_Exit_OnlyWindow=1
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Enable_Fold_Column=0
 
+" Tabline modifications
+set guitablabel=%t%m
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
-set statusline=[%t]\ [Type=%y]\ %{fugitive#statusline()}
+set statusline=[%t]%w%m%r\ [Type=%Y]\ %{fugitive#statusline()}
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+set statusline+=%=%-8.(%l,%c%V%)\ %p%% 
 
 " Preview Settings
 let g:PreviewBrowsers='google-chrome'

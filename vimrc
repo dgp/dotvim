@@ -12,7 +12,7 @@ set showcmd                   " display incomplete commands
 set incsearch                 " do incremental searching
 
 " Formatting
-set bs=2                      " allow backspacing over everything in insert mode
+set backspace=2                      " allow backspacing over everything in insert mode
 set shiftwidth=2              " Tabs under smart indent
 set ignorecase                " Ignore case while searching
 set autoindent
@@ -78,6 +78,7 @@ if has("autocmd")
 endif " has("autocmd")
 
 color railscasts
+set background=dark
 
 vmap <C-C> "+y
 vmap <C-X> "+x
@@ -103,9 +104,17 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
+nnoremap ; :
+nnoremap Y y$
+nmap <silent> <Leader>/ :nohlsearch<CR>
+
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+
 " Common Plugins
 syntax on
 filetype plugin indent on
+set foldenable
 set foldmethod=syntax
 
 runtime! macros/matchit.vim " Advanced % matching
@@ -116,7 +125,7 @@ map fmt :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
 
 " Improve autocomplete menu colors
 highlight PMenu gui=bold guibg=#444444 guifg=#CECECE
-
+set scrolloff=3    " Minimum lines to keep above & below the cursor
 set guioptions-=m  " Remove menu bar
 set guioptions-=T  " Remove toolbar
 set guioptions-=r  " Remove right-hand scroll bar 
@@ -141,16 +150,34 @@ set wildmenu wildmode=full
 " Plugin Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>" 
+
 " Ruby Debug IDE settings
 let g:ruby_debugger_fast_sender = 1
-map <F5> :call g:RubyDebugger.step()<CR>
-map <F6> :call g:RubyDebugger.next()<CR>
-map <F7> :call g:RubyDebugger.finish()<CR>
-map <F8> :call g:RubyDebugger.continue()<CR>
+map <F5> :DbgStepInto<CR>
+map <F6> :DbgStepOver<CR>
+map <F7> :DbgStepOut<CR>
+map <F8> :DbgRun<CR>
 
 " NERDTree Settings
 let NERDTreeChDirMode=1
 let g:NERDTreeMapActivateNode='<CR>'
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <Leader>e :NERDTreeFind<CR>
+
+" Fuzzy Find file, tree, buffer, line
+nmap <Leader>ff :FufFile **/<CR>
+nmap <Leader>ft :FufFile<CR>
+nmap <Leader>fb :FufBuffer<CR>
+nmap <Leader>fl :FufLine<CR>
+nmap <Leader>fr :FufRenewCache<CR>
 
 " Tlist settings
 let Tlist_Use_Right_Window=1
@@ -158,6 +185,14 @@ let Tlist_Auto_Open=0
 let Tlist_Exit_OnlyWindow=1
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Enable_Fold_Column=0
+let Tlist_Auto_Highlight_Tag=1
+let Tlist_Auto_Update=1
+let Tlist_Highlight_Tag_On_BufEnter=1
+let Tlist_Use_SingleClick=1
+
+" Ctags
+let g:ctags_statusline=1
+let g:tlist_javascript_settings='javascript;f:function;c:class;m:method;p:property;v:global'
 
 " Tabline modifications
 set guitablabel=%t%m
@@ -166,7 +201,7 @@ set statusline=[%t]%w%m%r\ [Type=%Y]\ %{fugitive#statusline()}
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-set statusline+=%=%-8.(%l,%c%V%)\ %p%% 
+set statusline+=%=%-8.(%l,%c%)\ %p%% 
 
 " Preview Settings
 let g:PreviewBrowsers='google-chrome'

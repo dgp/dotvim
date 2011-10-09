@@ -189,6 +189,7 @@ let Tlist_Auto_Highlight_Tag=1
 let Tlist_Auto_Update=1
 let Tlist_Highlight_Tag_On_BufEnter=1
 let Tlist_Use_SingleClick=1
+map <Leader>tl :Tlist<CR>
 
 " Ctags
 let g:ctags_statusline=1

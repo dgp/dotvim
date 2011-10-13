@@ -84,6 +84,10 @@ vmap <C-C> "+y
 vmap <C-X> "+x
 imap <C-V> <SPACE><ESC>"+gPi
 
+" Tab Navigation with Ctrl+Tab
+nmap <C-Tab> :tabnext<CR>
+nmap <C-S-Tab> :tabprev<CR>
+
 " Bubble single line - dependent on vim-unimpaired plugin
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -152,7 +156,6 @@ set wildmenu wildmode=full
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>" 
 
 " Ruby Debug IDE settings
 let g:ruby_debugger_fast_sender = 1
@@ -169,7 +172,7 @@ let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn'
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <Leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map <Leader>e :NERDTreeFind<CR>
 
 " Fuzzy Find file, tree, buffer, line

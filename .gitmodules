@@ -124,3 +124,15 @@
 [submodule "bundle/hamljs"]
 	path = bundle/hamljs
 	url = git@github.com:dhruvasagar/vim-hamljs.git
+[submodule "bundle/jst"]
+	path = bundle/jst
+	url = git://github.com/briancollins/vim-jst.git
+[submodule "bundle/ruby"]
+	path = bundle/ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/scala"]
+	path = bundle/scala
+	url = git://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/git"]
+	path = bundle/git
+	url = git://github.com/tpope/vim-git.git

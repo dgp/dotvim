@@ -208,7 +208,7 @@ set statusline+=%{rvm#statusline()}
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-set statusline+=%=%-8.(%l,%c%)\ %p%% 
+set statusline+=%=[%l,%c][%p%%]
 
 " Preview Settings
 let g:PreviewBrowsers='google-chrome'

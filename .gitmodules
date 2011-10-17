@@ -186,11 +186,3 @@
 	path = bundle/rvm
 	url = git://github.com/tpope/vim-rvm
         ignore = untracked
-[submodule "bundle/vimmpc"]
-	path = bundle/vimmpc
-	url = git@github.com:dhruvasagar/vimmpc.git
-        ignore = untracked
-[submodule "bundle/mpc"]
-	path = bundle/mpc
-	url = https://github.com/mfumi/mpc.vim.git
-        ignore = untracked

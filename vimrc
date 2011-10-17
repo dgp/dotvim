@@ -201,7 +201,7 @@ let g:tlist_javascript_settings='javascript;f:function;c:class;m:method;p:proper
 " Tabline modifications
 set guitablabel=%t%m
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
-set statusline=[%t]%w%m%r
+set statusline=[%t]%w%m%r%<
 set statusline+=[Type=%Y]
 set statusline+=%{fugitive#statusline()}
 set statusline+=%{rvm#statusline()}

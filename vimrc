@@ -137,6 +137,7 @@ set guioptions-=L  " Remove left-hand scroll bar
 
 " Vim supports dictionary autocomplete Ctrl_X+Ctrl_K
 set dictionary=/usr/share/dict/words
+set thesaurus=~/.vim/spell/mthesaur.txt
 
 " Vim inbuilt spell check, <Leader>z= for options, <Leader>zg to add word to list
 set spell

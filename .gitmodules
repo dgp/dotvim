@@ -150,10 +150,6 @@
 	path = bundle/preview
 	url = https://github.com/greyblake/vim-preview
         ignore = untracked
-[submodule "bundle/vimoutliner"]
-	path = bundle/vimoutliner
-	url = https://github.com/vimoutliner/vimoutliner
-        ignore = untracked
 [submodule "bundle/coffee-script"]
 	path = bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script
@@ -186,3 +182,25 @@
 	path = bundle/rvm
 	url = git://github.com/tpope/vim-rvm
         ignore = untracked
+[submodule "bundle/vimoutliner"]
+	path = bundle/vimoutliner
+	url = git@github.com:dhruvasagar/vimoutliner.git
+        ignore = untracked
+[submodule "bundle/rubyblock"]
+	path = bundle/rubyblock
+	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+        ignore = untracked
+[submodule "bundle/vspec"]
+	path = bundle/vspec
+	url = git://github.com/kana/vim-vspec.git
+        ignore = untracked
+[submodule "bundle/user-textobj"]
+	path = bundle/user-textobj
+	url = git://github.com/kana/vim-textobj-user.git
+        ignore = untracked
+[submodule "bundle/camelcasemotion"]
+	path = bundle/camelcasemotion
+	url = git://github.com/bkad/CamelCaseMotion.git
+[submodule "bundle/arg-textobj"]
+	path = bundle/arg-textobj
+	url = git://github.com/vim-scripts/argtextobj.vim.git

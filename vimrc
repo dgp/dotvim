@@ -87,6 +87,8 @@ imap <C-V> <SPACE><ESC>"+gPi
 " Tab Navigation with Ctrl+Tab
 nmap <C-Tab> :tabnext<CR>
 nmap <C-S-Tab> :tabprev<CR>
+nmap <silent> <C-S-Left> :exe 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nmap <silent> <C-S-Right> :exe 'silent! tabmove ' . tabpagenr()<CR>
 
 " Bubble single line - dependent on vim-unimpaired plugin
 nmap <C-Up> [e
@@ -129,34 +131,46 @@ map fmt :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
 
 " Improve autocomplete menu colors
 highlight PMenu gui=bold guibg=#444444 guifg=#CECECE
+
+" Gui Modifications
 set scrolloff=3    " Minimum lines to keep above & below the cursor
 set guioptions-=m  " Remove menu bar
 set guioptions-=T  " Remove toolbar
 set guioptions-=r  " Remove right-hand scroll bar 
 set guioptions-=L  " Remove left-hand scroll bar
 
+" Tabline modifications
+set guitablabel=%t%m
+
+" Statusline modifications, added Fugitive Status Line & Syntastic Error Message
+set statusline=[%t]%w%m%r%<
+set statusline+=[Type=%Y]
+set statusline+=%{fugitive#statusline()}
+set statusline+=%{rvm#statusline()}
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=%=[%l,%c][%p%%]
+
 " Vim supports dictionary autocomplete Ctrl_X+Ctrl_K
 set dictionary=/usr/share/dict/words
 set thesaurus=~/.vim/spell/mthesaur.txt
-
-" Vim inbuilt spell check, <Leader>z= for options, <Leader>zg to add word to list
-set spell
-
-" syntastic setting for vim to use |:sign| for marking syntax errors 
-let g:syntastic_enable_signs=1 
-
-" Remap command key
-nnoremap <Leader>T :CommandT<CR> 
 
 " Provides nice wild menu completion, makes command completion in ambiguous
 " case very easy
 set wildmenu wildmode=full
 
+" Vim inbuilt spell check, <Leader>z= for options, <Leader>zg to add word to list
+" set spell " enable this when needed, not needed all the time, can get annoying
+
+" Remap command key
+nnoremap <Leader>T :CommandT<CR> 
+
 " Plugin Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
+" Syntastic setting for vim to use |:sign| for marking syntax errors
+let g:syntastic_enable_signs=1
 
 " Ruby Debug IDE settings
 let g:ruby_debugger_fast_sender = 1
@@ -199,17 +213,8 @@ map <Leader>tl :Tlist<CR>
 let g:ctags_statusline=1
 let g:tlist_javascript_settings='javascript;f:function;c:class;m:method;p:property;v:global'
 
-" Tabline modifications
-set guitablabel=%t%m
-" Statusline modifications, added Fugitive Status Line & Syntastic Error Message
-set statusline=[%t]%w%m%r%<
-set statusline+=[Type=%Y]
-set statusline+=%{fugitive#statusline()}
-set statusline+=%{rvm#statusline()}
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=%=[%l,%c][%p%%]
-
 " Preview Settings
 let g:PreviewBrowsers='google-chrome'
+
+" Ack settings
+let g:ackprg="ack-grep -a -H --nocolor --nogroup --column" 

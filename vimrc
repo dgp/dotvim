@@ -184,7 +184,7 @@ let NERDTreeChDirMode=1
 let g:NERDTreeMapActivateNode='<CR>'
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-let NERDTreeQuitOnOpen=1
+"let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 map <Leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>

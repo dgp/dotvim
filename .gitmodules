@@ -204,3 +204,20 @@
 [submodule "bundle/arg-textobj"]
 	path = bundle/arg-textobj
 	url = git://github.com/vim-scripts/argtextobj.vim.git
+        ignore = untracked
+[submodule "bundle/better-css-syntax"]
+	path = bundle/better-css-syntax
+	url = git://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git
+        ignore = untracked
+[submodule "bundle/css-color"]
+	path = bundle/css-color
+	url = git://github.com/ap/vim-css-color.git
+        ignore = untracked
+[submodule "bundle/session"]
+	path = bundle/session
+	url = git://github.com/xolox/vim-session.git
+        ignore = untracked
+[submodule "bundle/shell"]
+	path = bundle/shell
+	url = git://github.com/xolox/vim-shell.git
+        ignore = untracked

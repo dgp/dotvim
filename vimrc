@@ -181,14 +181,14 @@ map <F8> :DbgRun<CR>
 
 " NERDTree Settings
 let NERDTreeChDirMode=1
-let g:NERDTreeMapActivateNode='<CR>'
+"let NERDTreeQuitOnOpen=1
+"let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-"let NERDTreeQuitOnOpen=1
-let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
+let g:NERDTreeMapActivateNode='<CR>'
 map <Leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-map <Leader>e :NERDTreeFind<CR>
+map <Leader>nf :NERDTreeFind<CR>
 
 " Fuzzy Find file, tree, buffer, line
 nmap <Leader>ff :FufFile **/<CR>
@@ -218,3 +218,10 @@ let g:PreviewBrowsers='google-chrome'
 
 " Ack settings
 let g:ackprg="ack-grep -a -H --nocolor --nogroup --column" 
+
+" Session
+set sessionoptions+=resize
+let g:session_autoload=1
+let g:session_autosave=1
+let g:session_default_to_last=1
+let g:session_command_aliases=1

@@ -221,3 +221,15 @@
 	path = bundle/shell
 	url = git://github.com/xolox/vim-shell.git
         ignore = untracked
+[submodule "bundle/jst"]
+	path = bundle/jst
+	url = git://github.com/briancollins/vim-jst.git
+[submodule "bundle/jellybeans"]
+	path = bundle/jellybeans
+	url = git://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/zenburn"]
+	path = bundle/zenburn
+	url = git://github.com/vexxor/zenburn.vim.git
+[submodule "bundle/foldsearch"]
+	path = bundle/foldsearch
+	url = git://github.com/embear/vim-foldsearch.git

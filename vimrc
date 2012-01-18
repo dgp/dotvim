@@ -10,11 +10,13 @@ set cf                        " Enable error files & error jumping
 set history=256               " keep 50 lines of command line history
 set showcmd                   " display incomplete commands
 set incsearch                 " do incremental searching
+set ignorecase                " Ignore case while searching
+set smartcase                 " Case Sensitive if Search Term has Upper Case
+set hlsearch                  " Highlight search by default
 
 " Formatting
 set backspace=2                      " allow backspacing over everything in insert mode
 set shiftwidth=2              " Tabs under smart indent
-set ignorecase                " Ignore case while searching
 set autoindent
 set number
 set numberwidth=3
@@ -29,13 +31,7 @@ set showmatch                 " Show matching brackets
 set novisualbell
 set noerrorbells
 set laststatus=2
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
+set mouse=a
 
 " pathogen config
 call pathogen#infect()
@@ -47,7 +43,6 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'textwidth' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
     au!
@@ -78,7 +73,6 @@ if has("autocmd")
 endif " has("autocmd")
 
 color railscasts
-set background=dark
 
 vmap <C-C> "+y
 vmap <C-X> "+x
@@ -120,6 +114,7 @@ cmap cd. lcd %:p:h
 " Common Plugins
 syntax on
 filetype plugin indent on
+
 set foldenable
 set foldmethod=syntax
 
@@ -133,14 +128,16 @@ map fmt :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
 highlight PMenu gui=bold guibg=#444444 guifg=#CECECE
 
 " Gui Modifications
-set scrolloff=3    " Minimum lines to keep above & below the cursor
-set guioptions-=m  " Remove menu bar
-set guioptions-=T  " Remove toolbar
-set guioptions-=r  " Remove right-hand scroll bar 
-set guioptions-=L  " Remove left-hand scroll bar
+if has('gui_running')
+  set scrolloff=5    " Minimum lines to keep above & below the cursor
+  set guioptions-=m  " Remove menu bar
+  set guioptions-=T  " Remove toolbar
+  set guioptions-=r  " Remove right-hand scroll bar 
+  set guioptions-=L  " Remove left-hand scroll bar
 
-" Tabline modifications
-set guitablabel=%t%m
+  " Tabline modifications
+  set guitablabel=%t%m
+end
 
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
 set statusline=[%t]%w%m%r%<

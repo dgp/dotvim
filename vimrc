@@ -48,12 +48,12 @@ if has("autocmd")
     au!
 
     " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
+    autocmd FileType vo_base setlocal spell
+    autocmd FileType text setlocal spell textwidth=78
 
     " For all ruby files
     autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et 
-
-    autocmd FileType yaml set foldmethod=indent
+    autocmd FileType haml,yaml set foldmethod=indent
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
@@ -110,6 +110,8 @@ nmap <silent> <Leader>/ :nohlsearch<CR>
 
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
+
+match Underlined /\<_[^_]*_\>/
 
 " Common Plugins
 syntax on

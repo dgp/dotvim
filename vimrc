@@ -72,7 +72,8 @@ if has("autocmd")
   augroup END
 endif " has("autocmd")
 
-color railscasts
+"color railscasts
+color gummybears
 
 vmap <C-C> "+y
 vmap <C-X> "+x
@@ -224,3 +225,6 @@ let g:session_autoload=1
 let g:session_autosave=1
 let g:session_default_to_last=1
 let g:session_command_aliases=1
+
+" Powerline
+let g:Powerline_symbols = 'fancy'

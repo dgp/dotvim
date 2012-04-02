@@ -73,7 +73,8 @@ if has("autocmd")
 endif " has("autocmd")
 
 "color railscasts
-color gummybears
+"color gummybears
+color zenburn
 
 vmap <C-C> "+y
 vmap <C-X> "+x
@@ -186,7 +187,6 @@ let NERDTreeChDirMode=1
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeKeepTreeInNewTab=1
-let g:NERDTreeMapActivateNode='<CR>'
 map <Leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map <Leader>nf :NERDTreeFind<CR>
 
@@ -228,3 +228,6 @@ let g:session_command_aliases=1
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+
+" TaskList
+map <Leader>td <Plug>TaskList

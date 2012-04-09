@@ -1,5 +1,6 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
+set shell=/bin/sh
 set nocompatible
 
 set backup                    " Enable creation of backup files

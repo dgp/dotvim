@@ -112,8 +112,6 @@ nmap <silent> <Leader>/ :nohlsearch<CR>
 cmap cwd lcd %:p:h
 cmap cd. lcd %:p:h
 
-match Underlined /\<_[^_]*_\>/
-
 " Common Plugins
 syntax on
 filetype plugin indent on
@@ -129,18 +127,6 @@ map fmt :silent 1,$!xmllint --format --recover - 2>/dev/null<CR>
 
 " Improve autocomplete menu colors
 highlight PMenu gui=bold guibg=#444444 guifg=#CECECE
-
-" Gui Modifications
-if has('gui_running')
-  set scrolloff=5    " Minimum lines to keep above & below the cursor
-  set guioptions-=m  " Remove menu bar
-  set guioptions-=T  " Remove toolbar
-  set guioptions-=r  " Remove right-hand scroll bar 
-  set guioptions-=L  " Remove left-hand scroll bar
-
-  " Tabline modifications
-  set guitablabel=%t%m
-end
 
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
 set statusline=[%t]%w%m%r%<

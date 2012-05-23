@@ -34,10 +34,6 @@
 	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim
         ignore = untracked
-[submodule "bundle/tag_list"]
-	path = bundle/tag_list
-	url = https://github.com/jcf/tag_list.vim
-        ignore = untracked
 [submodule "bundle/ragtag"]
 	path = bundle/ragtag
 	url = https://github.com/tpope/vim-ragtag
@@ -280,4 +276,8 @@
 [submodule "bundle/rope"]
 	path = bundle/rope
 	url = https://github.com/sontek/rope-vim.git
+        ignore = untracked
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
         ignore = untracked

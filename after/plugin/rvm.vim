@@ -1,2 +1,1 @@
-Rvm
-command! -bang -nargs=1 -complete=dir CdRvm cd <args> | Rvm use
+command! -bang -nargs=1 -complete=dir CdRvm cd <args> | Rvm

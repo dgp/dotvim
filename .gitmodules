@@ -284,3 +284,6 @@
 [submodule "bundle/lint"]
 	path = bundle/lint
 	url = git://github.com/joestelmach/lint.vim.git
+[submodule "bundle/molokai-theme"]
+	path = bundle/molokai-theme
+	url = git://github.com/tomasr/molokai.git

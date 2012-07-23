@@ -16,7 +16,10 @@ set smartcase                 " Case Sensitive if Search Term has Upper Case
 set hlsearch                  " Highlight search by default
 
 " Formatting
-set backspace=2                      " allow backspacing over everything in insert mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set backspace=2               " allow backspacing over everything in insert mode
+set tabstop=2
+set softtabstop=2
 set shiftwidth=2              " Tabs under smart indent
 set autoindent
 set number
@@ -29,11 +32,12 @@ set expandtab
 set fileformat=unix
 
 " Visual
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set showmatch                 " Show matching brackets
 set novisualbell
 set noerrorbells
 set laststatus=2
-set mouse=a
+set mouse=a                   " Enables mouse within terminals
 
 " pathogen config
 call pathogen#infect()
@@ -74,10 +78,9 @@ if has("autocmd")
   augroup END
 endif " has("autocmd")
 
-"color railscasts
-"color gummybears
 color zenburn
 
+" Convenient Mappings
 nmap <C-s> :w<CR>
 vmap <C-s> :w<CR>
 imap <C-s> <ESC>:w<CR>a
@@ -89,6 +92,8 @@ imap <C-V> <SPACE><ESC>"+gPi
 " Tab Navigation with Ctrl+Tab
 nmap <C-Tab> :tabnext<CR>
 nmap <C-S-Tab> :tabprev<CR>
+
+" Move tabs around with Ctrl+Shift+Arrow key
 nmap <silent> <C-S-Left> :exe 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nmap <silent> <C-S-Right> :exe 'silent! tabmove ' . tabpagenr()<CR>
 
@@ -116,9 +121,6 @@ nnoremap ; :
 nnoremap Y y$
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
-cmap cwd lcd %:p:h
-cmap cd. lcd %:p:h
-
 " Common Plugins
 syntax on
 filetype plugin indent on
@@ -128,12 +130,8 @@ set foldmethod=syntax
 
 runtime! macros/matchit.vim " Advanced % matching
 
-let g:xml_syntax_folding=1
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"  
-map fmt :silent 1,$!xmllint --format --recover - 2>/dev/null<CR> 
-
-" Improve autocomplete menu colors
-highlight PMenu gui=bold guibg=#444444 guifg=#CECECE
+" Improve autocomplete menu colors for railscast theme
+"highlight PMenu gui=bold guibg=#444444 guifg=#CECECE
 
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
 set statusline=[%t]%w%m%r%<
@@ -154,9 +152,14 @@ set thesaurus=~/.vim/spell/mthesaur.txt
 set wildmenu wildmode=full
 
 " Vim inbuilt spell check, <Leader>z= for options, <Leader>zg to add word to list
-" set spell " enable this when needed, not needed all the time, can get annoying
+"set spell " enable this when needed, not needed all the time, can get annoying
 
-" Remap command key
+" Ruby special settings
+let g:rubycomplete_rails = 1
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+
+" Remap command key (since ruby_debugger overrides <Leader>t)
 nnoremap <Leader>T :CommandT<CR> 
 
 " Plugin Settings
@@ -166,11 +169,13 @@ nnoremap <Leader>T :CommandT<CR>
 let g:syntastic_enable_signs=1
 
 " Ruby Debug IDE settings
-let g:ruby_debugger_fast_sender = 1
 map <F5> :DbgStepInto<CR>
 map <F6> :DbgStepOver<CR>
 map <F7> :DbgStepOut<CR>
 map <F8> :DbgRun<CR>
+let g:ruby_debugger_progname = 'mvim'
+"let g:ruby_debugger_fast_sender = 1
+let g:ruby_debugger_default_script = 'rails s'
 
 " NERDTree Settings
 let NERDTreeChDirMode=1

@@ -6,6 +6,8 @@ set nocompatible
 set backup                    " Enable creation of backup files
 set backupdir=~/.vim/backups  " Directory where backups will go
 set directory=~/.vim/tmp      " Directory for temporary files
+set undofile
+set undodir=~/.vim/undo
 
 set cf                        " Enable error files & error jumping
 set history=256               " keep 50 lines of command line history
@@ -15,8 +17,11 @@ set ignorecase                " Ignore case while searching
 set smartcase                 " Case Sensitive if Search Term has Upper Case
 set hlsearch                  " Highlight search by default
 
+set autoread
+set scrolloff=5
+
 " Formatting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backspace=2               " allow backspacing over everything in insert mode
 set tabstop=2
 set softtabstop=2
@@ -26,6 +31,7 @@ set number
 set numberwidth=3
 set nowrap
 set linebreak
+set showbreak=↳\              " shown at the start of a wrapped line
 set cursorline
 set smarttab
 set expandtab
@@ -37,9 +43,11 @@ set showmatch                 " Show matching brackets
 set novisualbell
 set noerrorbells
 set laststatus=2
+set ttymouse=xterm2
 set mouse=a                   " Enables mouse within terminals
 
 " pathogen config
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -127,6 +135,7 @@ filetype plugin indent on
 
 set foldenable
 set foldmethod=syntax
+set foldlevel=99
 
 runtime! macros/matchit.vim " Advanced % matching
 
@@ -200,15 +209,24 @@ let g:PreviewBrowsers='google-chrome'
 " Ack settings
 let g:ackprg="ack-grep -a -H --nocolor --nogroup --column" 
 
-" Session
+" Session settings
 set sessionoptions+=resize
 let g:session_autoload=1
 let g:session_autosave=1
 let g:session_default_to_last=1
 let g:session_command_aliases=1
 
-" Powerline
+" Powerline settings
 let g:Powerline_symbols = 'fancy'
 
-" TaskList
+" TaskList settings
 map <Leader>td <Plug>TaskList
+
+" Gist settings
+let g:gist_show_privates = 1
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
+" Lint settings
+let jshint_highlight_color = 'DarkGray'
+let disable_lint = 1

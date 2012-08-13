@@ -294,3 +294,6 @@
 	path = bundle/railscasts-theme
 	url = git://github.com/jpo/vim-railscasts-theme.git
   ignore = untracked
+[submodule "bundle/webapi"]
+	path = bundle/webapi
+	url = git://github.com/mattn/webapi-vim.git

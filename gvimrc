@@ -1,7 +1,5 @@
 color zenburn
 
-set scrolloff=5
-
 " Removing all gui components like Menu, Toolbar, Scrollbars
 set guioptions-=m
 set guioptions-=T

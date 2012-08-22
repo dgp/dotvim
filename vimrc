@@ -228,5 +228,4 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
 " Lint settings
-let jshint_highlight_color = 'DarkGray'
-let disable_lint = 1
+let g:lint_highlight_color = 'DarkGray'

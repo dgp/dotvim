@@ -309,6 +309,8 @@
 [submodule "bundle/calendar"]
 	path = bundle/calendar
 	url = git://github.com/mattn/calendar-vim.git
-[submodule "mustang-theme"]
-	path = mustang-theme
+	ignore = untracked
+[submodule "bundle/mustang-theme"]
+	path = bundle/mustang-theme
 	url = git://github.com/vim-scripts/Mustang2.git
+	ignore = untracked

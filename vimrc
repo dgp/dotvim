@@ -129,6 +129,12 @@ nnoremap ; :
 nnoremap Y y$
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
+" Forbidden to user Arrows
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
 " Common Plugins
 syntax on
 filetype plugin indent on

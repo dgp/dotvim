@@ -313,4 +313,3 @@
 [submodule "bundle/mustang-theme"]
 	path = bundle/mustang-theme
 	url = git://github.com/vim-scripts/Mustang2.git
-	ignore = untracked

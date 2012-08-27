@@ -1,6 +1,5 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-set shell=/bin/sh
 set nocompatible
 
 set backup                    " Enable creation of backup files
@@ -86,7 +85,8 @@ if has("autocmd")
   augroup END
 endif " has("autocmd")
 
-color zenburn
+"color zenburn
+color railscasts
 
 " Convenient Mappings
 nmap <C-s> :w<CR>
@@ -128,12 +128,6 @@ inoremap <Up> <C-o>gk
 nnoremap ; :
 nnoremap Y y$
 nmap <silent> <Leader>/ :nohlsearch<CR>
-
-" Forbidden to user Arrows
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
 
 " Common Plugins
 syntax on

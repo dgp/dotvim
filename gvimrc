@@ -1,4 +1,4 @@
-color zenburn
+color railscasts
 
 " Removing all gui components like Menu, Toolbar, Scrollbars
 set guioptions-=m

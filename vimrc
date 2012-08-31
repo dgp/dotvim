@@ -1,5 +1,6 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
+set shell=/bin/sh             " Fix for loading right ruby in macvim
 set nocompatible
 
 set backup                    " Enable creation of backup files
@@ -9,7 +10,7 @@ set undofile
 set undodir=~/.vim/undo
 
 set cf                        " Enable error files & error jumping
-set history=256               " keep 50 lines of command line history
+set history=256               " keep 256 lines of command line history
 set showcmd                   " display incomplete commands
 set incsearch                 " do incremental searching
 set ignorecase                " Ignore case while searching
@@ -22,10 +23,11 @@ set scrolloff=5
 " Formatting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backspace=2               " allow backspacing over everything in insert mode
+set autoindent
+set smartindent
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2              " Tabs under smart indent
-set autoindent
 set number
 set numberwidth=3
 set nowrap
@@ -139,9 +141,6 @@ set foldlevel=99
 
 runtime! macros/matchit.vim " Advanced % matching
 
-" Improve autocomplete menu colors for railscast theme
-"highlight PMenu gui=bold guibg=#444444 guifg=#CECECE
-
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
 set statusline=[%t]%w%m%r%<
 set statusline+=[Type=%Y]
@@ -229,3 +228,7 @@ let g:gist_open_browser_after_post = 1
 
 " Lint settings
 let g:lint_highlight_color = 'DarkGray'
+
+" Task settings
+inoremap <Leader>c <Esc>:call Toggle_task_status()<CR>i
+nnoremap <Leader>c :call Toggle_task_status()<CR>

@@ -3,6 +3,7 @@
 *tmp
 *tags
 .netrwhist
-backups/*
 tmp/*
+snips/*
+backups/*
 sessions/*

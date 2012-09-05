@@ -229,6 +229,12 @@ let g:gist_open_browser_after_post = 1
 " Lint settings
 let g:lint_highlight_color = 'DarkGray'
 
-" Task settings
-inoremap <Leader>c <Esc>:call Toggle_task_status()<CR>i
-nnoremap <Leader>c :call Toggle_task_status()<CR>
+" QuickTask settings
+let g:quicktask_autosave = 1
+let g:quicktask_snip_path = '~/.vim/snips'
+
+" JQueryDoc settings
+let g:jquery_doc_command='open'
+
+" RubyDoc settings
+let g:ruby_doc_command='open'

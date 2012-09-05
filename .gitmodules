@@ -246,10 +246,6 @@
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
   ignore = untracked
-[submodule "bundle/makegreen"]
-	path = bundle/makegreen
-	url = https://github.com/reinh/vim-makegreen
-  ignore = untracked
 [submodule "bundle/pep8"]
 	path = bundle/pep8
 	url = https://github.com/vim-scripts/pep8.git
@@ -301,3 +297,21 @@
 [submodule "bundle/quicktask"]
 	path = bundle/quicktask
 	url = git://github.com/aaronbieber/quicktask.git
+  ignore = untracked
+[submodule "bundle/rspec"]
+	path = bundle/rspec
+	url = git://github.com/skwp/vim-rspec.git
+  ignore = untracked
+[submodule "bundle/async_command"]
+	path = bundle/async_command
+	url = git://github.com/pydave/AsyncCommand.git
+  ignore = untracked
+[submodule "bundle/jquery-doc"]
+	path = bundle/jquery-doc
+	url = git://github.com/lucapette/vim-jquery-doc.git
+[submodule "bundle/ruby-doc"]
+	path = bundle/ruby-doc
+	url = git://github.com/lucapette/vim-ruby-doc.git
+[submodule "bundle/tomorrow-theme"]
+	path = bundle/tomorrow-theme
+	url = git://github.com/chriskempson/vim-tomorrow-theme.git

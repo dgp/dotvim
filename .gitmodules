@@ -262,10 +262,6 @@
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
   ignore = untracked
-[submodule "bundle/lint"]
-	path = bundle/lint
-	url = git://github.com/joestelmach/lint.vim.git
-  ignore = untracked
 [submodule "bundle/molokai-theme"]
 	path = bundle/molokai-theme
 	url = git://github.com/tomasr/molokai.git
@@ -309,9 +305,12 @@
 [submodule "bundle/jquery-doc"]
 	path = bundle/jquery-doc
 	url = git://github.com/lucapette/vim-jquery-doc.git
+  ignore = untracked
 [submodule "bundle/ruby-doc"]
 	path = bundle/ruby-doc
 	url = git://github.com/lucapette/vim-ruby-doc.git
+  ignore = untracked
 [submodule "bundle/tomorrow-theme"]
 	path = bundle/tomorrow-theme
 	url = git://github.com/chriskempson/vim-tomorrow-theme.git
+  ignore = untracked

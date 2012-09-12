@@ -231,7 +231,6 @@ let g:lint_highlight_color = 'DarkGray'
 
 " QuickTask settings
 let g:quicktask_autosave = 1
-let g:quicktask_snip_path = '~/.vim/snips'
 
 " JQueryDoc settings
 let g:jquery_doc_command='open'

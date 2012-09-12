@@ -91,29 +91,29 @@ endif " has("autocmd")
 color railscasts
 
 " Convenient Mappings
-nmap <C-s> :w<CR>
-vmap <C-s> :w<CR>
-imap <C-s> <ESC>:w<CR>a
+nnoremap <C-s> :w<CR>
+vnoremap <C-s> :w<CR>
+inoremap <C-s> <ESC>:w<CR>a
 
-vmap <C-C> "+y
-vmap <C-X> "+x
-imap <C-V> <SPACE><ESC>"+gPi
+vnoremap <C-C> "+y
+vnoremap <C-X> "+x
+inoremap <C-V> <ESC>"+pa
 
 " Tab Navigation with Ctrl+Tab
-nmap <C-Tab> :tabnext<CR>
-nmap <C-S-Tab> :tabprev<CR>
+nnoremap <C-Tab> :tabnext<CR>
+nnoremap <C-S-Tab> :tabprev<CR>
 
 " Move tabs around with Ctrl+Shift+Arrow key
-nmap <silent> <C-S-Left> :exe 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nmap <silent> <C-S-Right> :exe 'silent! tabmove ' . tabpagenr()<CR>
+nnoremap <silent> <C-S-Left> :exe 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <C-S-Right> :exe 'silent! tabmove ' . tabpagenr()<CR>
 
 " Bubble single line - dependent on vim-unimpaired plugin
-nmap <C-Up> [e
-nmap <C-Down> ]e
+nnoremap <C-Up> [e
+nnoremap <C-Down> ]e
 
 " Bubble multiple lines - also dependent on vim-unimpaired plugin
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vnoremap <C-Up> [egv
+vnoremap <C-Down> ]egv
 
 " These are mappings for the longlines mode equivalent"
 nnoremap j gj
@@ -129,7 +129,7 @@ inoremap <Up> <C-o>gk
 
 nnoremap ; :
 nnoremap Y y$
-nmap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " Common Plugins
 syntax on
@@ -157,7 +157,7 @@ set thesaurus=~/.vim/spell/mthesaur.txt
 
 " Provides nice wild menu completion, makes command completion in ambiguous
 " case very easy
-set wildmenu wildmode=full
+set wildmenu wildmode=full wildignorecase
 
 " Vim inbuilt spell check, <Leader>z= for options, <Leader>zg to add word to list
 "set spell " enable this when needed, not needed all the time, can get annoying
@@ -233,7 +233,12 @@ let g:lint_highlight_color = 'DarkGray'
 let g:quicktask_autosave = 1
 
 " JQueryDoc settings
-let g:jquery_doc_command='open'
+let g:jquery_doc_command = 'open'
 
 " RubyDoc settings
-let g:ruby_doc_command='open'
+let g:ruby_doc_commanad = 'open'
+
+" Rspec
+let g:RspecKeymap = 0
+noremap <C-S-R> :RunSpec<CR>
+noremap <C-S-L> :RunSpecLine<CR>

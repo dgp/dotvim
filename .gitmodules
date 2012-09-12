@@ -310,3 +310,7 @@
 	path = bundle/tomorrow-theme
 	url = git://github.com/chriskempson/vim-tomorrow-theme.git
   ignore = untracked
+[submodule "bundle/rspec"]
+	path = bundle/rspec
+	url = git://github.com/dhruvasagar/vim-rspec.git
+  ignore = untracked

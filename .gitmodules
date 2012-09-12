@@ -294,10 +294,6 @@
 	path = bundle/quicktask
 	url = git://github.com/aaronbieber/quicktask.git
   ignore = untracked
-[submodule "bundle/rspec"]
-	path = bundle/rspec
-	url = git://github.com/skwp/vim-rspec.git
-  ignore = untracked
 [submodule "bundle/async_command"]
 	path = bundle/async_command
 	url = git://github.com/pydave/AsyncCommand.git

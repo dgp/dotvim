@@ -108,12 +108,12 @@ nnoremap <silent> <C-S-Left> :exe 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <C-S-Right> :exe 'silent! tabmove ' . tabpagenr()<CR>
 
 " Bubble single line - dependent on vim-unimpaired plugin
-nnoremap <C-Up> [e
-nnoremap <C-Down> ]e
+nmap <C-Up> [e
+nmap <C-Down> ]e
 
 " Bubble multiple lines - also dependent on vim-unimpaired plugin
-vnoremap <C-Up> [egv
-vnoremap <C-Down> ]egv
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 " These are mappings for the longlines mode equivalent"
 nnoremap j gj

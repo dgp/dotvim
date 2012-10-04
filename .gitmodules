@@ -314,3 +314,7 @@
 	path = bundle/rspec
 	url = git://github.com/dhruvasagar/vim-rspec.git
   ignore = untracked
+[submodule "bundle/twitvim"]
+	path = bundle/twitvim
+	url = git://github.com/vim-scripts/TwitVim.git
+  ignore = untracked

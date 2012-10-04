@@ -6,19 +6,13 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
-set guifont=Menlo\ for\ Powerline\ 9
+set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 9
 
 set guitablabel=%t%m
 
 function! SetTitleString()
-  if getcwd() == expand("%:p:h")
-    set titlestring=%t\ %m
-    set titlestring+=\ [%{substitute(getcwd(),\ $HOME,\ '~',\ '')}]
-  else
-    set titlestring=%t\ %m
-    set titlestring+=\ (%{substitute(expand('%:p:h'),\ $HOME,\ '~',\ '')})
-    set titlestring+=\ -\ [%{split(substitute(getcwd(),\ $HOME,\ '~',\ ''),\ '/')[-1]}]
-  endif
+  set titlestring=%f\ %m
+  set titlestring+=\ -\ [%{split(substitute(getcwd(),\ $HOME,\ '~',\ ''),\ '/')[-1]}]
 endfunction
 call SetTitleString()
 

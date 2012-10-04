@@ -95,6 +95,8 @@ nnoremap <C-s> :w<CR>
 vnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>a
 
+nnoremap qq :q<CR>
+
 vnoremap <C-C> "+y
 vnoremap <C-X> "+x
 inoremap <C-V> <ESC>"+pa
@@ -240,5 +242,9 @@ let g:ruby_doc_commanad = 'open'
 
 " Rspec
 let g:RspecKeymap = 0
-noremap <C-S-R> :RunSpec<CR>
-noremap <C-S-L> :RunSpecLine<CR>
+noremap <C-M-r> :RunSpec<CR>
+noremap <C-M-l> :RunSpecLine<CR>
+
+" TwitVim
+let twitvim_api_root = "https://api.twitter.com/1"
+let twitvim_browser_cmd = 'chromium-browser'

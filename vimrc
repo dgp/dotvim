@@ -3,9 +3,8 @@
 set shell=/bin/sh             " Fix for loading right ruby in macvim
 set nocompatible
 
-set backup                    " Enable creation of backup files
-set backupdir=~/.vim/backups  " Directory where backups will go
-set directory=~/.vim/tmp      " Directory for temporary files
+set nobackup                    " Enable creation of backup files
+set noswapfile
 set undofile
 set undodir=~/.vim/undo
 
@@ -66,10 +65,6 @@ if has("autocmd")
     autocmd FileType vo_base setlocal spell
     autocmd FileType text setlocal spell textwidth=78
 
-    " For all ruby files
-    autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et 
-    autocmd FileType haml,yaml set foldmethod=indent
-
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
@@ -78,12 +73,33 @@ if has("autocmd")
           \   exe "normal g`\"" |
           \ endif
 
-    " Automatically remove hidden fugitive buffers
-    autocmd BufReadPost fugitive://* set bufhidden=delete
-
     " Automatically load .vimrc changes
     autocmd BufWritePost vimrc source $MYVIMRC
     autocmd BufWritePost .vimrc source $MYVIMRC 
+  augroup END
+
+  " For ruby
+  augroup Ruby
+    au!
+
+    autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+    autocmd FileType haml,yaml set foldmethod=indent
+  augroup END
+
+  augroup fugitive
+    au!
+
+    " Automatically remove hidden fugitive buffers
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+  augroup END
+
+  " For SnipMate to load appropriate snippets for these filtypes
+  augroup snipMate
+    au!
+
+    autocmd FileType haml set ft=haml.css.javascript.javascript-jquery
+    autocmd FileType eruby set ft=eruby.css.html.javascript.javascript-jquery
+    autocmd FileType javascript set ft=javascript.javascript-jquery
   augroup END
 endif " has("autocmd")
 
@@ -94,8 +110,6 @@ color railscasts
 nnoremap <C-s> :w<CR>
 vnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>a
-
-nnoremap qq :q<CR>
 
 vnoremap <C-C> "+y
 vnoremap <C-X> "+x
@@ -143,6 +157,14 @@ set foldlevel=99
 
 runtime! macros/matchit.vim " Advanced % matching
 
+" Vim supports dictionary autocomplete Ctrl_X+Ctrl_K
+set dictionary=/usr/share/dict/words
+set thesaurus=~/.vim/spell/mthesaur.txt
+
+" Provides nice wild menu completion, makes command completion in ambiguous
+" case very easy
+set wildmenu wildmode=full wildignorecase
+
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
 set statusline=[%t]%w%m%r%<
 set statusline+=[Type=%Y]
@@ -153,27 +175,24 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%=[%l,%c][%p%%]
 
-" Vim supports dictionary autocomplete Ctrl_X+Ctrl_K
-set dictionary=/usr/share/dict/words
-set thesaurus=~/.vim/spell/mthesaur.txt
+set title
+function! SetTitleString()
+  set titlestring=%f\ %m
+  set titlestring+=\ -\ [%{split(substitute(getcwd(),\ $HOME,\ '~',\ ''),\ '/')[-1]}]
+endfunction
+"call SetTitleString()
+autocmd BufEnter * call SetTitleString()
 
-" Provides nice wild menu completion, makes command completion in ambiguous
-" case very easy
-set wildmenu wildmode=full wildignorecase
+" Plugin Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Vim inbuilt spell check, <Leader>z= for options, <Leader>zg to add word to list
-"set spell " enable this when needed, not needed all the time, can get annoying
-
-" Ruby special settings
+" Ruby settings
 let g:rubycomplete_rails = 1
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 
-" Remap command key (since ruby_debugger overrides <Leader>t)
+" Command-T settings
 nnoremap <Leader>T :CommandT<CR> 
-
-" Plugin Settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Syntastic setting for vim to use |:sign| for marking syntax errors
 let g:syntastic_enable_signs=1
@@ -189,8 +208,6 @@ let g:ruby_debugger_default_script = 'rails s'
 
 " NERDTree Settings
 let NERDTreeChDirMode=1
-"let NERDTreeQuitOnOpen=1
-"let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeKeepTreeInNewTab=1

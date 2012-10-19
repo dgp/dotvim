@@ -97,9 +97,11 @@ if has("autocmd")
   augroup snipMate
     au!
 
-    autocmd FileType haml set ft=haml.css.javascript.javascript-jquery
-    autocmd FileType eruby set ft=eruby.css.html.javascript.javascript-jquery
-    autocmd FileType javascript set ft=javascript.javascript-jquery
+    let g:snipMate = {}
+    let g:snipMate.scope_aliases = {}
+    let g:snipMate.scope_aliases['haml'] = 'haml,css,javascript,javascript-jquery'
+    let g:snipMate.scope_aliases['eruby'] = 'eruby,css,html,javascript,javascript-jquery'
+    let g:snipMate.scope_aliases['javascript'] = 'javascript,javascript-jquery'
   augroup END
 endif " has("autocmd")
 
@@ -186,6 +188,23 @@ autocmd BufEnter * call SetTitleString()
 " Plugin Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+function! ToggleRelativeNumbers()
+  " Relative numbers on demand
+  if !exists('b:relative_numbers')
+    let b:relative_numbers = 0
+  endif
+
+  if b:relative_numbers == 0
+    let b:relative_numbers = 1
+    setlocal relativenumber
+  else
+    let b:relative_numbers = 0
+    setlocal number
+  endif
+endfunction
+nnoremap ,rn :call ToggleRelativeNumbers()<CR>
+
 " Ruby settings
 let g:rubycomplete_rails = 1
 let g:rubycomplete_buffer_loading = 1
@@ -265,3 +284,6 @@ noremap <C-M-l> :RunSpecLine<CR>
 " TwitVim
 let twitvim_api_root = "https://api.twitter.com/1"
 let twitvim_browser_cmd = 'chromium-browser'
+
+" Gundo
+nnoremap <Leader>u :GundoToggle<CR>

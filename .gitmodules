@@ -322,3 +322,7 @@
 	path = bundle/gitv
 	url = git://github.com/gregsexton/gitv.git
   ignore = untracked
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = git://github.com/mileszs/ack.vim.git
+  ignore = untracked

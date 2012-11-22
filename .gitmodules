@@ -326,3 +326,7 @@
 	path = bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
   ignore = untracked
+[submodule "bundle/tailminusf"]
+	path = bundle/tailminusf
+	url = git://github.com/vim-scripts/TailMinusF.git
+  ignore = untracked

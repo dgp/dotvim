@@ -330,7 +330,3 @@
 	path = bundle/tailminusf
 	url = git://github.com/vim-scripts/TailMinusF.git
   ignore = untracked
-[submodule "bundle/multiselect"]
-	path = bundle/multiselect
-	url = git://github.com/vim-scripts/multiselect.git
-  ignore = untracked

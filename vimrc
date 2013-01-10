@@ -31,7 +31,6 @@ set number
 set numberwidth=3
 set nowrap
 set linebreak
-set showbreak=↳\              " shown at the start of a wrapped line
 set cursorline
 set smarttab
 set expandtab
@@ -165,7 +164,7 @@ set thesaurus=~/.vim/spell/mthesaur.txt
 
 " Provides nice wild menu completion, makes command completion in ambiguous
 " case very easy
-set wildmenu wildmode=full wildignorecase
+set wildmenu wildmode=full "wildignorecase
 
 " Statusline modifications, added Fugitive Status Line & Syntastic Error Message
 set statusline=[%t]%w%m%r%<
@@ -217,10 +216,10 @@ nnoremap <Leader>T :CommandT<CR>
 let g:syntastic_enable_signs=1
 
 " Ruby Debug IDE settings
-map <F5> :DbgStepInto<CR>
-map <F6> :DbgStepOver<CR>
-map <F7> :DbgStepOut<CR>
-map <F8> :DbgRun<CR>
+"map <F5> :DbgStepInto<CR>
+"map <F6> :DbgStepOver<CR>
+"map <F7> :DbgStepOut<CR>
+"map <F8> :DbgRun<CR>
 let g:ruby_debugger_progname = 'mvim'
 "let g:ruby_debugger_fast_sender = 1
 let g:ruby_debugger_default_script = 'rails s'

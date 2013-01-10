@@ -50,10 +50,6 @@
 	path = bundle/rubycomplete
 	url = https://github.com/vim-scripts/rubycomplete.vim
   ignore = untracked
-[submodule "bundle/simple_pairs"]
-	path = bundle/simple_pairs
-	url = https://github.com/vim-scripts/simple-pairs
-  ignore = untracked
 [submodule "bundle/l9"]
 	path = bundle/l9
 	url = https://github.com/vim-scripts/L9

@@ -225,7 +225,7 @@ let g:ruby_debugger_progname = 'mvim'
 let g:ruby_debugger_default_script = 'rails s'
 
 " NERDTree Settings
-let NERDTreeChDirMode=1
+let NERDTreeChDirMode=2
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeKeepTreeInNewTab=1
@@ -243,7 +243,7 @@ nmap <Leader>fr :FufRenewCache<CR>
 let g:PreviewBrowsers='google-chrome'
 
 " Ack settings
-let g:ackprg="ack-grep -a -H --nocolor --nogroup --column" 
+let g:ackprg="ack -a -H --nocolor --nogroup --column" 
 
 " Session settings
 "set sessionoptions+=resize
